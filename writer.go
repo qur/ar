@@ -70,8 +70,7 @@ func (aw *Writer) Write(b []byte) (n int, err error) {
 	}
 
 	if len(b)%2 == 1 { // data size must be aligned to an even byte
-		n2, _ := aw.w.Write([]byte{'\n'})
-		return n+n2, err
+		aw.w.Write([]byte{'\n'})
 	}
 
 	return
